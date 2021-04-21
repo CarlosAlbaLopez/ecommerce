@@ -1,0 +1,66 @@
+use ecommerce;
+
+create table usuarios (
+id INT unsigned auto_increment primary key,
+nombreUsuario varchar(20) unique not null,
+nombre varchar(30) not null,
+apellidos varchar(60) not null,
+contrasenha varchar(255) not null,
+localidad varchar(40),
+foto varchar(60) default "defaultAvatar.jpg",
+email varchar(60) unique not null,
+fecha timestamp default current_timestamp,
+vacaciones boolean
+);
+
+create table categorias(
+id int unsigned auto_increment primary key,
+titulo varchar(60) not null
+);
+
+create table articulos(
+id int unsigned auto_increment primary key,
+id_usuario int unsigned not null,
+id_categoria int unsigned not null,
+titulo varchar(60) not null,
+descripcion longtext not null,
+localizacion varchar(400) not null,
+precio decimal(8,2) not null,
+fecha timestamp default current_timestamp,
+disponible boolean not null default 1,
+foto1 VARCHAR(120) DEFAULT "defaultPic.jpg",
+foto2 VARCHAR(120) DEFAULT NULL,
+foto3 VARCHAR(120) DEFAULT NULL,
+foto4 VARCHAR(120) DEFAULT NULL,
+foto5 VARCHAR(120) DEFAULT NULL,
+constraint articulo_usuarioid_fk foreign key (id_usuario)
+	references usuarios(id) on delete cascade,
+constraint articulo_categoriaid_fk foreign key (id_categoria)
+	references categorias(id) on delete cascade 
+);
+
+create table alquileres(
+id int unsigned auto_increment primary key,
+id_articulo int unsigned not null,
+id_comprador int unsigned not null,
+id_vendedor int unsigned not null,
+fecha timestamp default current_timestamp,
+valoracionComprador tinyint,
+comentarioValoracionComprador varchar (255),
+valoracionVendedor tinyint,
+comentarioValoracionVendedor varchar (255),
+tiempoAlquiler varchar (255),
+precioFinal decimal (8,2) not null,
+constraint compra_articuloid_fk foreign key (id_articulo)
+	references articulos(id) on delete cascade,
+constraint compra_usuarioid_fk foreign key (id_comprador)
+	references usuarios(id) on delete cascade
+);
+
+create table subcategorias(
+id int unsigned auto_increment primary key,
+id_categoria int unsigned not null,
+titulo varchar(60) not null,
+constraint categoria_articuloid_fk foreign key (id_categoria)
+	references categorias(id) on delete cascade
+);
