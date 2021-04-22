@@ -1,0 +1,26 @@
+********************************************************ECOMMERCE********************************************************
+
+
+INICIO- 
+En la cabecera el título
+En la página de inicio tenemos un pequeño buscador con un par de filtros y botón que despliega los filtros avanzados.
+Muestra los anuncios por provincia, precio, palabra, etc
+
+LOGIN-
+Nombre y contraseña. Opción Google. Una vez logueado que rediriga a inicio.
+
+REGISTRO-
+Cuestionario. Opción Google. Una vez logueado que rediriga a inicio.
+
+PERFIL-
+Datos, valoración, productos y vacaciones con confirmación.
+
+ARTICULO-
+Datos articulo, usuario vendedor(pequeño), alquilar y añadir a favorito.
+
+FAVORITOS-
+Mostrar articulos favoritos por usuario.
+
+ALQUILER-
+Cuestionario dinámico con los siguientes cuestiones: fecha, hora, lugar recogida, añadir nota y añadir seguro. Resumen de todo y confirmar.
+Una vez alquilado que rediriga a la búsqueda donde estaba.
