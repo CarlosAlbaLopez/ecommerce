@@ -3,7 +3,7 @@
 const Joi = require("joi");
 const bcrypt = require("bcryptjs");
 const usersRepository = require("../../repositories/users-repository");
-// const createJsonError = require("../errors/create-json-errors");
+const createJsonError = require("../errors/create-json-errors");
 // const cryptoRandomString = require("crypto-random-string");
 
 const schema = Joi.object().keys({
@@ -20,7 +20,7 @@ async function registerUsers(req, res) {
   try {
     await schema.validateAsync(req.body);
 
-    const { name, email, password } = req.body;
+    const { userName, name, lastName, password, city, email } = req.body;
     const existUser = await usersRepository.findUserByEmail(email);
     if (existUser) {
       const error = new Error("Ya existe un usuario con este email");
@@ -32,19 +32,21 @@ async function registerUsers(req, res) {
     const passwordHash = await bcrypt.hash(password, 12);
 
     const id = await usersRepository.createUser(
+      userName,
       name,
-      email,
+      lastName,
       passwordHash,
-      "reader"
+      city,
+      email
     );
     const verificationCode = cryptoRandomString({ length: 64 });
 
-    await sendEmailRegistration(name, email, verificationCode);
-    await usersRepository.addVerificationCode(id, verificationCode);
+    // await sendEmailRegistration(name, email, verificationCode);
+    // await usersRepository.addVerificationCode(id, verificationCode);
 
-    res.status(201).send({ id, name, email, role: "reader" });
+    res.status(201).send("Usuario registrado");
   } catch (err) {
-    // createJsonError(err, res);
+    createJsonError(err, res);
   }
 }
 

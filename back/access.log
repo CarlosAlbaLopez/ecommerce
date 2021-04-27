@@ -1,1 +1,6 @@
 ::ffff:127.0.0.1 - - [27/Apr/2021:10:45:46 +0000] "POST /api/v1/users/register HTTP/1.1" - - "-" "Thunder Client (https://www.thunderclient.io)"
+::1 - - [27/Apr/2021:11:04:53 +0000] "POST /api/v1/users/register%20 HTTP/1.1" 404 164 "-" "PostmanRuntime/7.26.8"
+::1 - - [27/Apr/2021:11:06:29 +0000] "POST /api/v1/users/register HTTP/1.1" - - "-" "PostmanRuntime/7.26.8"
+::1 - - [27/Apr/2021:11:15:30 +0000] "POST /api/v1/users/register HTTP/1.1" - - "-" "PostmanRuntime/7.26.8"
+::1 - - [27/Apr/2021:11:28:55 +0000] "POST /api/v1/users/register HTTP/1.1" 500 1287 "-" "PostmanRuntime/7.26.8"
+::1 - - [27/Apr/2021:11:32:20 +0000] "POST /api/v1/users/register HTTP/1.1" 500 48 "-" "PostmanRuntime/7.26.8"

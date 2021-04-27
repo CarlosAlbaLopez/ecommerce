@@ -15,9 +15,14 @@ async function findUserByEmail(email) {
 async function createUser(userName, name, lastName, passwordHash, city, email) {
   const pool = await database.getPool();
   const insertQuery =
-    "INSERT INTO usuarios (nombreUsuario, nombre, apellidos, contrasenha, localidad, email)"
+    "INSERT INTO usuarios (nombreUsuario, nombre, apellidos, contrasenha, localidad, email) VALUES (?,?,?,?,?,?)";
   const [created] = await pool.query(insertQuery, [
-    userName, name, lastName, passwordHash, city, email
+    userName,
+    name,
+    lastName,
+    passwordHash,
+    city,
+    email,
   ]);
 
   console.log(insertQuery);
@@ -27,7 +32,6 @@ async function createUser(userName, name, lastName, passwordHash, city, email) {
 }
 
 module.exports = {
-    createUser,
-    findUserByEmail
-  };
-  
+  createUser,
+  findUserByEmail,
+};
