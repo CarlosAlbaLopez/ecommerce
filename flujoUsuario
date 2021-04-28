@@ -24,3 +24,31 @@ Mostrar articulos favoritos por usuario.
 ALQUILER-
 Cuestionario dinámico con los siguientes cuestiones: fecha, hora, lugar recogida, añadir nota y añadir seguro. Resumen de todo y confirmar.
 Una vez alquilado que rediriga a la búsqueda donde estaba.
+
+
+*** CATEGORIAS ***
+
+Deportes
+    - Surf
+    - Tenis
+    - Esquí
+
+Herramientas
+    - Bricolage
+    - Agricultura
+    - Carpintería
+
+Tecnología
+    - Ordenadores
+    - Pantallas
+    - Patinetes
+
+Ocio
+    - Películas
+    - CD/DVD
+    - Periféricos
+
+Vehículos
+    - Coches
+    - Autocaravanas
+    - Motos

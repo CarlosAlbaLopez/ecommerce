@@ -4,7 +4,7 @@ const Joi = require("joi");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const usersRepository = require("../../repositories/users-repository");
-// const createJsonError = require("../errors/create-json-errors");
+const createJsonError = require("../errors/create-json-errors");
 
 const schema = Joi.object().keys({
   email: Joi.string().email().required(),
@@ -51,7 +51,7 @@ async function loginUser(req, res) {
 
     res.send(response);
   } catch (err) {
-    // createJsonError(err, res);
+    createJsonError(err, res);
   }
 }
 

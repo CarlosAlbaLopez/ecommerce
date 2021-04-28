@@ -39,7 +39,7 @@ async function registerUsers(req, res) {
       city,
       email
     );
-    const verificationCode = cryptoRandomString({ length: 64 });
+    // const verificationCode = cryptoRandomString({ length: 64 });
 
     // await sendEmailRegistration(name, email, verificationCode);
     // await usersRepository.addVerificationCode(id, verificationCode);
