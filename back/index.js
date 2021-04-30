@@ -3,12 +3,14 @@
 require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
 const app = express();
 app.use(express.json());
+app.use(cors());
 
-// const articlesRouter = require("./app/routes/articles-routes");
+const articlesRouter = require("./routes/articles-routes");
 const usersRouter = require("./routes/users-routes");
 
 const port = process.env.SERVER_PORT || 3080;
@@ -19,7 +21,7 @@ const accessLogStream = fs.createWriteStream(
 );
 
 app.use(morgan("combined", { stream: accessLogStream }));
-// app.use("/api/v1/articles/", articlesRouter);
+app.use("/api/v1/articles/", articlesRouter);
 app.use("/api/v1/users/", usersRouter);
 
 app.listen(port, () => console.log(`Listening ${port}...`));

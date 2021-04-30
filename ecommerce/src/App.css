@@ -1,38 +1,69 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-around;
+  background-color: black;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+nav > img {
+  padding-top: 1%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.menu-icons {
+  width: 50%;
+}
+
+.menu-icons > ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+  align-items:center;
+}
+
+.filtros {
+  background-color: firebrick;
+  color: white;
+  height: 200px;
+  width: 50%;
+  margin: 3% auto;
+}
+
+.galeria {
+    background-color: blue;
+  color: white;
+  height: 1000px;
+  width: 50%;
+  margin: 3% auto;
+}
+
+.footer {
+  background-color: black;
+  color: white;
+    clear: both;
+    position: relative;
+    height: 75px;
+    margin-top: -75px;
+}
+
+.fullContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid black;
+  margin: 2%;
+}
+
+.fullContainer:hover{
+  cursor: pointer;
+}
+
+.listOfArticles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.gridContainer img {
+  max-width: 250px;
 }
