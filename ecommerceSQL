@@ -64,3 +64,26 @@ titulo varchar(60) not null,
 constraint categoria_articuloid_fk foreign key (id_categoria)
 	references categorias(id) on delete cascade
 );
+
+
+###categorias
+INSERT INTO categorias VALUES (1, "Herramientas"), (2, "Deportes"), (3,"Tecnologia"), (4,"Ocio"),(5, "Vehiculos");
+
+####subcategorias
+INSERT INTO subcategorias
+VALUES
+  (1, 2, 'Surf'), 
+  (2, 2, 'Tenis'), 
+  (3, 2, 'Esquí'), 
+  (4, 1, 'Bricolage'), 
+  (5, 1, 'Agricultura'), 
+  (6, 1, 'Carpintería'), 
+  (7, 3, 'Ordenadores'), 
+  (8, 3, 'Pantallas'), 
+  (9, 3, 'Patinetes'), 
+  (10, 4, 'Películas'), 
+  (11, 4, 'CD/DVD'), 
+  (12, 4, 'Periféricos'), 
+  (13, 5, 'Coches'), 
+  (14, 5, 'Autocaravanas'), 
+  (15, 5, 'Motos');
