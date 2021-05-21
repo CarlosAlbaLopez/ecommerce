@@ -12,12 +12,12 @@ function validateAuth(req, res, next) {
       error.status = 403;
       throw error;
     }
-    const accesToken = authorization.split(" ")[1];
+    const accessToken = authorization.split(" ")[1];
 
-    const payload = jwt.verify(accesToken, JWT_SECRET);
-    const { id, name } = payload;
+    const payload = jwt.verify(accessToken, JWT_SECRET);
+    const { id, nombreUsuario } = payload;
 
-    req.auth = { id, name };
+    req.auth = { id, nombreUsuario };
 
     next();
   } catch (err) {

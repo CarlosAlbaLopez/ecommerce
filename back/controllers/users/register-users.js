@@ -27,7 +27,6 @@ async function registerUsers(req, res) {
       error.status = 409;
       throw error;
     }
-    console.log(name);
 
     const passwordHash = await bcrypt.hash(password, 12);
 

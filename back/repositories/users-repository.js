@@ -25,9 +25,6 @@ async function createUser(userName, name, lastName, passwordHash, city, email) {
     email,
   ]);
 
-  console.log(insertQuery);
-  console.log(created.insertId);
-
   return created.insertId;
 }
 

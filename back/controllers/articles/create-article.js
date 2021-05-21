@@ -6,7 +6,7 @@ const articlesRepository = require("../../repositories/articles-repository");
 const schema = Joi.object().keys({
   subcategoryId: Joi.number().min(1).required(),
   title: Joi.string().alphanum().min(2).max(50).required(),
-  description: Joi.string().alphanum().min(2).max(250),
+  description: Joi.string().min(2).max(250),
   location: Joi.string().alphanum().min(2).max(100).required(),
   price: Joi.number().precision(2).required(),
 });
@@ -24,8 +24,15 @@ async function createArticle(req, res) {
     const userId = req.auth.id;
 
     const { subcategoryId, title, description, location, price } = req.body;
-    const addedArticle = await articlesRepository.create(userId, subcategoryId, title, description, location, price);
-    res.status(201).send( {addedArticle} );
+    const addedArticle = await articlesRepository.create(
+      userId,
+      subcategoryId,
+      title,
+      description,
+      location,
+      price
+    );
+    res.status(201).send({ addedArticle });
   } catch (err) {
     if (err.name === "ValidationError") {
       err.status = 400;

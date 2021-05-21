@@ -4,9 +4,6 @@ import useRemoteArticlesById from "../hooks/useRemoteArticlesById";
 export default function Articulo() {
   const props = useParams();
   const [article] = useRemoteArticlesById(props.id);
-  console.log(article);
-  console.log(article.foto);
-  console.log(article.foto1);
   return (
     <div>
       {article.map((articulo) => {

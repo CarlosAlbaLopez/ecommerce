@@ -12,15 +12,12 @@ const schema = Joi.object().keys({
 });
 
 async function loginUser(req, res) {
-  console.log(1);
   try {
     await schema.validateAsync(req.body);
 
     const { email, password } = req.body;
-    console.log(email, password);
 
     const user = await usersRepository.findUserByEmail(email);
-        console.log(user);
     if (!user) {
       const error = new Error("No existe un usuario registrado para ese email");
       error.code = 401;
@@ -28,7 +25,6 @@ async function loginUser(req, res) {
     }
 
     const isValidPassword = await bcrypt.compare(password, user.contrasenha);
-        console.log(user.contrasenha);
     if (!isValidPassword) {
       const error = new Error("La contraseña es incorrecta");
       error.code = 401;
@@ -36,21 +32,20 @@ async function loginUser(req, res) {
     }
 
     const secret = process.env.JWT_SECRET;
-    console.log(secret);
-    const {id, userName, name, lastName, city} = user;
+    const { id, nombreUsuario, nombre, apellidos, localidad } = user;
     const jwtTokenExpiration = "365d";
     const payload = {
       id,
-      userName,
-      name,
-      lastName,
-      city,
+      nombreUsuario,
+      nombre,
+      apellidos,
+      localidad,
       email,
     };
     const token = jwt.sign(payload, secret, { expiresIn: jwtTokenExpiration });
 
     const response = {
-      accesToken: token,
+      accessToken: token,
       expiresIn: jwtTokenExpiration,
     };
 
